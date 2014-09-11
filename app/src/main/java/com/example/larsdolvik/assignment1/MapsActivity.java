@@ -86,7 +86,7 @@ public class MapsActivity extends FragmentActivity {
     }
 
     public void showCity(LatLng latiLong){
-        TextView cityText = (TextView) findViewById(R.id.textViewCity);
+        TextView cityText = (TextView) findViewById(R.id.textViewCity);     // test
 
     String url = "http://api.wunderground.com/auto/wui/geo/GeoLookupXML/index.xml?query=" + latiLong.latitude + "," + latiLong.longitude;
 
