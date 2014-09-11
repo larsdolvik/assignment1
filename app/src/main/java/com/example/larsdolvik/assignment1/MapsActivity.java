@@ -14,8 +14,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
-    private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private XMLhandler object;
+    private GoogleMap mMap;      // Might be null if Google Play services APK is not available.
+    private XMLhandler object;   //handles the xml page
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,22 +29,6 @@ public class MapsActivity extends FragmentActivity {
         super.onResume();
         setUpMapIfNeeded();
     }
-
-    /**
-     * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
-     * installed) and the map has not already been instantiated.. This will ensure that we only ever
-     * call {@link #setUpMap()} once when {@link #mMap} is not null.
-     * <p>
-     * If it isn't installed {@link SupportMapFragment} (and
-     * {@link com.google.android.gms.maps.MapView MapView}) will show a prompt for the user to
-     * install/update the Google Play services APK on their device.
-     * <p>
-     * A user can return to this FragmentActivity after following the prompt and correctly
-     * installing/updating/enabling the Google Play services. Since the FragmentActivity may not
-     * have been completely destroyed during this process (it is likely that it would only be
-     * stopped or paused), {@link #onCreate(Bundle)} may not be called again so we should call this
-     * method in {@link #onResume()} to guarantee that it will be called.
-     */
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
@@ -57,43 +42,37 @@ public class MapsActivity extends FragmentActivity {
         }
     }
 
-    /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
-     * <p>
-     * This should only be called once and when we are sure that {@link #mMap} is not null.
-     */
 
-
+    //gets current location and and zooms into it, also adds marker and
+    //runs the function which gets data from the xml
     private void setUpMap() {
-        // Getting LocationManager object from System Service LOCATION_SERVICE
+
+        //gets LM obj from System Service LOCATION_SERVICE
         LocationManager locMan = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        // Creating a criteria object to retrieve provider
-        // Criteria criteria = new Criteria();
-
-        // Getting the name of the best provider
-        // String provider = locationManager.getBestProvider(criteria, true);
-
-        // Getting Current Location         (might change network to provider, so the best is chosen.
+        //gets current loc(location)
         Location loc = locMan.getLastKnownLocation("network");
 
+        //creates a latitude and longitude for current pos
+        // zooms in on it and adds marker
         LatLng latiLong = new LatLng(loc.getLatitude(), loc.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latiLong, 15));
         mMap.addMarker(new MarkerOptions().position(new LatLng(loc.getLatitude(),loc.getLongitude())).title("Your position!"));
 
+        //takes latitude and longitude as parameter
         showCity(latiLong);
     }
-
+        //fetches xml file from the url with current latitude and longitude
+        //gets data from url and displays it
     public void showCity(LatLng latiLong){
-        TextView cityText = (TextView) findViewById(R.id.textViewCity);     // test
+        TextView cityText = (TextView) findViewById(R.id.textViewCity);
 
     String url = "http://api.wunderground.com/auto/wui/geo/GeoLookupXML/index.xml?query=" + latiLong.latitude + "," + latiLong.longitude;
 
         object = new XMLhandler(url);
         object.fetchXML();
         while(object.parsingComplete);
-        cityText.setText("You are currently in: " + object.getCity() + ".Here the timezone is: " + object.getTimeZone());
+        cityText.setText("You are currently in: " + object.getCity() + ". Here the timezone is: " + object.getTimeZone());
     }
 }
 

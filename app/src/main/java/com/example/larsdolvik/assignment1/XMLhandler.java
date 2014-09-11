@@ -1,7 +1,5 @@
 package com.example.larsdolvik.assignment1;
 
-import android.util.Log;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -9,6 +7,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+//Got alot of help from: http://tutorialspoint.com/android/android_xml_parsers.htm
 /**
  * Created by Dølvik on 10.09.2014.
  */
