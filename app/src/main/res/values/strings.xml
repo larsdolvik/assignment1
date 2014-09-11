@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Assignment1</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Position and condition</string>
+    <string name="hintName">Name</string>
+    <string name="nameButton">Try me!</string>
+    <string name="mapButton">Where am I?</string>
+    <string name="contDep">Name</string>
+
+</resources>

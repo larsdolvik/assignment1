@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MyActivity"
+    android:clickable="false">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameField"
+        android:hint="@string/hintName"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/nameButton"
+        android:layout_alignEnd="@+id/nameButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameButton"
+        android:id="@+id/nameButton"
+        android:onClick="showName"
+        android:layout_above="@+id/nameField"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textSize="18sp" />
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mapButton"
+        android:layout_above="@+id/nameButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="showMap"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:text="@string/mapButton"
+        android:textSize="18sp" />
+</RelativeLayout>
