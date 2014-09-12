@@ -18,6 +18,7 @@ public class MyActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+        getNameDataFromDB();                        //gets history from database
     }
 
     public void showMap(View v){ //Showing a toast, and opens mapsactivity
@@ -40,22 +41,23 @@ public class MyActivity extends Activity {
         else {
             Toast.makeText(getApplicationContext(), "You must enter a name!", Toast.LENGTH_SHORT).show();
         }
-        getNameDataFromDB();                            //gets history from database
+        getNameDataFromDB();                            //gets names from database
+
     }
     public void addNameDataToDB(String name) {
         db.addName(new Name(name));                      //adds name to the database
     }
 
     public void getNameDataFromDB() {                   //gets 3 latest name from database
-        int namesInDatabase = db.getNameCount()-1; // We set it -1 so we don't get the name just
-        int namesPrinted = 0;                      //written in the log that is shown
+        int namesInDatabase = db.getNameCount();
+        int namesPrinted = 0;
 
         TextView last3names = (TextView) findViewById(R.id.loglast3);
 
-        last3names.setText("Here are the 3 latest names in the database:");
+        last3names.setText("Here are the 3 latest names entered:");
 
         if (namesInDatabase == 0)
-            last3names.append("\nNo names have been added yet!");
+            last3names.append("\nNo names have been entered yet!");
 
         // Gets us the 3 newest names, from newest and backward.
         while (namesInDatabase != 0 && namesPrinted < 3) {
