@@ -1,4 +1,4 @@
-package com.example.larsdolvik.assignment1;
+package no.larsdolvik.assignment1;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;

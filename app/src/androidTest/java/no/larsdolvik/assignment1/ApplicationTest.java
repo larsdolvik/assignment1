@@ -1,4 +1,4 @@
-package com.example.larsdolvik.assignment1;
+package com.no.larsdolvik.assignment1;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

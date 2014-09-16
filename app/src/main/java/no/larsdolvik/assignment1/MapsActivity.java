@@ -1,4 +1,4 @@
-package com.example.larsdolvik.assignment1;
+package no.larsdolvik.assignment1;
 
 import android.location.Location;
 import android.location.LocationManager;

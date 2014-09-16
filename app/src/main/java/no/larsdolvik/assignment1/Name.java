@@ -1,4 +1,4 @@
-package com.example.larsdolvik.assignment1;
+package no.larsdolvik.assignment1;
 
 //got some code and help from: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
 
