@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-//Have gotten alot of help from: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+//Have gotten code and help from this source: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 

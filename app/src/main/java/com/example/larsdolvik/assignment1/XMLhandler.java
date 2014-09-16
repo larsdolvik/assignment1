@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-//Got alot of help from: http://tutorialspoint.com/android/android_xml_parsers.htm
+//Got code and help from: http://tutorialspoint.com/android/android_xml_parsers.htm
 /**
  * Created by Dølvik on 10.09.2014.
  */

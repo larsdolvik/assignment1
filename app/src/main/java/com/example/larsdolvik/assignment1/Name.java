@@ -1,6 +1,6 @@
 package com.example.larsdolvik.assignment1;
 
-//help from: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+//got some code and help from: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
 
 public class Name {
     //private variables
